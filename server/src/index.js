@@ -9,6 +9,16 @@ const { initRealtime } = require('./services/realtime');
 
 loadEnv();
 
+
+app.use(cors({
+  origin: [
+    "http://localhost:5173",         // local dev
+    "https://echo-pind-frontend-oulf.vercel.app",  // your deployed frontend on Vercel
+  ],
+  credentials: true,
+}));
+
+
 const app = express();
 
 // Middlewares
